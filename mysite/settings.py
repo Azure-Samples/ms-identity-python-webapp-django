@@ -9,8 +9,19 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os, random, string
 from pathlib import Path
+
+import os, random, string
+from dotenv import load_dotenv
+from identity.django import Auth
+load_dotenv()
+AUTH = Auth(
+    os.getenv('CLIENT_ID'),
+    client_credential=os.getenv('CLIENT_SECRET'),
+    redirect_view=os.getenv('REDIRECT_VIEW'),
+    scopes=os.getenv('SCOPE', "").split(),
+    authority=os.getenv('AUTHORITY'),
+    )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "identity",  # To utilize the default templates came with the identity package
 ]
 
 MIDDLEWARE = [
@@ -54,7 +66,12 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates",  # Enable this project's templates folder.
+                # You can also add your own "identity/login.html" and
+                # "identity/auth_error.html" into this folder
+                # to override the default templates came with identity package.
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
