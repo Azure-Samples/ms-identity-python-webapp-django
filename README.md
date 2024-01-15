@@ -77,12 +77,8 @@ as a reference. What we need are these steps:
 
    ```python
    from identity.django import Auth
-   AUTH = Auth("your_client_id", client_credential=..., authority=..., redirect_view="xyz")
+   AUTH = Auth("your_client_id", client_credential=..., authority=..., redirect_uri=...)
    ```
-
-   Generally speaking, your redirect_uri shall contain a top-level path such as
-   `http://localhost:5000/redirect`,
-   then your setting here shall be `..., redirect_view="redirect")`.
 
 2. Inside the same `mysite/settings.py` file,
    add `"identity",` into the `INSTALLED_APPS` list,
@@ -99,11 +95,10 @@ as a reference. What we need are these steps:
 
    ```python
    ...
-   from django.urls import path, include
    from django.conf import settings
 
    urlpatterns = [
-       path("", include(settings.AUTH.urlpatterns)),
+       settings.AUTH.urlpattern,
        ...
    ]
    ```
@@ -119,7 +114,7 @@ as a reference. What we need are these steps:
 
    @settings.AUTH.login_required
    def index(request):
-       return HttpResponse("Hello, if you can read this, you're signed in.")
+       return HttpResponse("Hello, only signed-in user can read this.")
    ```
 
    That is it. Now visit `http://localhost:5000` again, you will see the sign-in experience.
@@ -137,6 +132,7 @@ import requests
 
 ...
 
+# here we demonstrate how to handle the error explicitly.
 def call_downstream_api(request):
     token = settings.AUTH.get_token_for_user(["your_scope1", "your_scope2"])
     if "error" in token:
@@ -151,8 +147,6 @@ def call_downstream_api(request):
         "content": json.dumps(api_result, indent=4),
     })
 ```
-
-The `settings.AUTH.get_token_for_user(...)` will also implicitly enforce sign-in.
 
 You can refer to our
 [full sample here](https://github.com/Azure-Samples/ms-identity-python-webapp-django)

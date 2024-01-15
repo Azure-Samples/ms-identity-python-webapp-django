@@ -6,7 +6,7 @@ from django.shortcuts import redirect, render
 import requests
 
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 
 @settings.AUTH.login_required
@@ -20,9 +20,8 @@ def index(request):
         downstream_api=os.getenv("ENDPOINT"),
     ))
 
-# We choose to not decorate this view with @login_required,
-# because its get_token_for_user() could ask for more scopes than initial login,
-# so we want to handle the error separately.
+# Instead of using the login_required decorator,
+# here we demonstrate how to handle the error explicitly.
 def call_downstream_api(request):
     token = settings.AUTH.get_token_for_user(request, os.getenv("SCOPE", "").split())
     if "error" in token:

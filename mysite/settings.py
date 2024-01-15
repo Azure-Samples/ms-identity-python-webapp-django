@@ -18,7 +18,7 @@ load_dotenv()
 AUTH = Auth(
     os.getenv('CLIENT_ID'),
     client_credential=os.getenv('CLIENT_SECRET'),
-    redirect_view=os.getenv('REDIRECT_VIEW'),
+    redirect_uri=os.getenv('REDIRECT_URI'),
     scopes=os.getenv('SCOPE', "").split(),
     authority=os.getenv('AUTHORITY'),
     )

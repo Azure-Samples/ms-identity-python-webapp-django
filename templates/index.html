@@ -17,7 +17,7 @@
       <li><a href='{{ edit_profile_url }}'>Edit Profile</a></li>
     {% endif %}
 
-    <li><a href="/logout">Logout</a></li>
+    <li><a href="{% url 'identity.django.logout' %}">Logout</a></li>
     </ul>
 </body>
 </html>
