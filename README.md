@@ -6,6 +6,7 @@ and the
 [Microsoft Entra ID](https://www.microsoft.com/security/business/microsoft-entra)
 to sign in users and make authenticated calls to the Microsoft Graph API.
 
+![Topology](static/topology.png)
 
 ## Getting Started
 
@@ -23,7 +24,7 @@ to sign in users and make authenticated calls to the Microsoft Graph API.
    [its repo](https://github.com/Azure-Samples/ms-identity-python-webapp-django)
    or download its zip package, and then start using it or build on top of it.
    (Alternatively, you can follow our [tutorial](#tutorial) to learn
-   how to build this from scratch, or how to add auth to your existing project.
+   how to build this from scratch, or how to add auth to your existing project.)
 2. `cd project_name`
 3. Run `pip install -r requirements.txt` to install dependencies
 4. Run `python manage.py migrate` to initialize your Django project
