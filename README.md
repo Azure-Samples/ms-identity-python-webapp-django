@@ -38,6 +38,20 @@ to sign in users and make authenticated calls to the Microsoft Graph API.
    You may need to change to a different port to match your redirect_uri setup.
 2. Now visit http://localhost:5000
 
+### Deployment
+
+Once you finish testing this web app locally, you can deploy it to your production.
+You may choose any web app hosting services you want.
+Here we will describe how to deploy it to
+[Azure App Service](https://azure.microsoft.com/en-us/products/app-service).
+
+* Follow the ["Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service"](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python),
+  but replace its sample app (which does not do user sign-in) with this web app.
+
+* [Configure your app's settings](https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs=portal#configure-app-settings)
+  to define
+  [these environment variables](https://github.com/Azure-Samples/ms-identity-python-webapp-django/blob/main/.env.sample).
+
 
 ## Tutorial
 

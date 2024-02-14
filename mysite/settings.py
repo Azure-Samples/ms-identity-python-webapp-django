@@ -36,7 +36,16 @@ SECRET_KEY = os.getenv("SECRET_KEY", default="".join(random.choices(string.print
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+if os.getenv("WEBSITE_HOSTNAME"):  # Settings for Azure App Service,
+    # See https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#production-settings-for-django-apps
+    ALLOWED_HOSTS = [os.getenv("WEBSITE_HOSTNAME")]
+
+    # See https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#detect-https-session
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    USE_X_FORWARDED_HOST = True
+else:
+    ALLOWED_HOSTS = []
 
 
 # Application definition
