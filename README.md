@@ -27,9 +27,9 @@ to sign in users and make authenticated calls to the Microsoft Graph API.
    how to build this from scratch, or how to add auth to your existing project.)
 2. `cd project_name`
 3. Run `pip install -r requirements.txt` to install dependencies
-4. Run `python manage.py migrate` to initialize your Django project
-5. Copy [`.env.sample`](https://github.com/Azure-Samples/ms-identity-python-webapp-django/blob/main/.env.sample) as `.env`,
+4. Copy [`.env.sample`](https://github.com/Azure-Samples/ms-identity-python-webapp-django/blob/main/.env.sample) as `.env`,
    and then modify its content based on your application's registration.
+5. Run `python manage.py migrate` to initialize your Django project
 
 ### Quickstart
 

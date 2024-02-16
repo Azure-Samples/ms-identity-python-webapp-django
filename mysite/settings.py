@@ -19,7 +19,6 @@ AUTH = Auth(
     os.getenv('CLIENT_ID'),
     client_credential=os.getenv('CLIENT_SECRET'),
     redirect_uri=os.getenv('REDIRECT_URI'),
-    scopes=os.getenv('SCOPE', "").split(),
     authority=os.getenv('AUTHORITY'),
     )
 
