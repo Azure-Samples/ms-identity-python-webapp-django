@@ -19,7 +19,7 @@ to sign in users and make authenticated calls to the Microsoft Graph API.
 
 ### Installation
 
-1. This sample already implements sign-in and calling downstream API.
+1. This sample already implements sign-in and calling a web API.
    You can clone
    [its repo](https://github.com/Azure-Samples/ms-identity-python-webapp-django)
    or download its zip package, and then start using it or build on top of it.
@@ -138,7 +138,7 @@ as a reference. What we need are these steps:
 ### Chapter 2: Get an Access Token and call Microsoft Graph
 
 This chapter begins where chapter 1 left off.
-We will add the following new view which will call a downstream API.
+We will add the following new view which will call a web API.
 
 ```python
 import json
@@ -148,11 +148,11 @@ import requests
 ...
 
 # here we demonstrate how to handle the error explicitly.
-def call_downstream_api(request):
+def call_web_api(request):
     token = settings.AUTH.get_token_for_user(["your_scope1", "your_scope2"])
     if "error" in token:
         return redirect(settings.AUTH.login)
-    api_result = requests.get(  # Use access token to call downstream api
+    api_result = requests.get(  # Use access token to call a web api
         "https://example.com/your/api",
         headers={'Authorization': 'Bearer ' + token['access_token']},
         timeout=30,

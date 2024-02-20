@@ -15,8 +15,8 @@
     <img src="https://github.com/Azure-Samples/ms-identity-python-webapp-django/raw/main/static/topology.png" alt="Topology">
 
     <ul>
-    {% if downstream_api %}
-      <li><a href='/call_downstream_api'>Call a downstream API</a></li>
+    {% if api_endpoint %}
+      <li><a href='/call_api'>Call an API</a></li>
     {% endif %}
 
     {% if edit_profile_url %}
