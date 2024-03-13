@@ -20,6 +20,10 @@ AUTH = Auth(
     client_credential=os.getenv('CLIENT_SECRET'),
     redirect_uri=os.getenv('REDIRECT_URI'),
     authority=os.getenv('AUTHORITY'),
+    b2c_tenant_name=os.getenv('B2C_TENANT_NAME'),
+    b2c_signup_signin_user_flow=os.getenv('SIGNUPSIGNIN_USER_FLOW'),
+    b2c_edit_profile_user_flow=os.getenv('EDITPROFILE_USER_FLOW'),
+    b2c_reset_password_user_flow=os.getenv('RESETPASSWORD_USER_FLOW'),
     )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
