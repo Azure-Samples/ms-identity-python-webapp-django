@@ -6,16 +6,16 @@ from django.shortcuts import render
 import requests
 
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"
 
 
 @settings.AUTH.login_required
 def index(request, *, context):
     return render(request, 'index.html', dict(
         user=context['user'],
-        version=__version__,
         edit_profile_url=settings.AUTH.get_edit_profile_url(),
         api_endpoint=os.getenv("ENDPOINT"),
+        title=f"Microsoft Entra ID Django Web App Sample v{__version__}",
     ))
 
 @settings.AUTH.login_required(scopes=os.getenv("SCOPE", "").split())

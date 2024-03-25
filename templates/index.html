@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Microsoft Entra ID Django Web App Sample: Index</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1>Microsoft Entra ID Django Web App Sample {{version}}</h1>
+    <h1>{{ title }}</h1>
     <h2>Welcome {{ user.name }}!</h2>
 
     <!-- There is much hussle to get the local static image to show up on App Service.
@@ -23,7 +23,7 @@
       <li><a href='{{ edit_profile_url }}'>Edit Profile</a></li>
     {% endif %}
 
-    <li><a href="{% url 'identity.django.logout' %}">Logout</a></li>
+    <li><a href="{% url 'identity.logout' %}">Logout</a></li>
     </ul>
 </body>
 </html>

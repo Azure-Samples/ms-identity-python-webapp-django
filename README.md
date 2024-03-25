@@ -15,16 +15,10 @@ Write your app like this once, and the same implementation will support 4x2=8 sc
 
 ### Prerequisites
 
-1. Register your web application in the Microsoft Entra admin center,
-   by following step 1, 2 and 3 of this
-   [Quickstart: Add sign-in with Microsoft to a Python web app](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-web-app-python-sign-in?tabs=windows)
-   (Note: There will be articles on how to register your app with External ID, etc..)
 1. Have [Python](https://python.org) 3.8+ installed
 1. Clone from
    [its repo](https://github.com/Azure-Samples/ms-identity-python-webapp-django)
    or download its zip package, and then start using it or build on top of it.
-   (Alternatively, you can follow our [tutorial](#tutorial) to learn
-   how to build this from scratch, or how to add auth to your existing project.)
 1. `cd project_name`
 1. Run `pip install -r requirements.txt` to install dependencies
 1. Run `python manage.py migrate` to initialize your Django project
@@ -42,6 +36,33 @@ Write your app like this once, and the same implementation will support 4x2=8 sc
     <th>Microsoft Entra External ID with Custom Domain</th>
     <th>Azure AD B2C</th>
   </tr>
+
+  <tr>
+    <th>App Registration</th>
+    <td><!-- See https://github.com/github/cmark-gfm/issues/12 -->
+
+Following only the step 1, 2 and 3  of this
+[Quickstart: Add sign-in with Microsoft to a Python web app](https://learn.microsoft.com/entra/identity-platform/quickstart-web-app-python-sign-in?tabs=windows)
+
+</td>
+    <td>
+
+Follow only the page 1 of this [Tutorial: Prepare your customer tenant ...](https://learn.microsoft.com/entra/external-id/customers/tutorial-web-app-python-flask-prepare-tenant)
+
+</td>
+    <td>
+
+Coming soon.
+
+</td>
+    <td>
+
+Following only the step 1 and 2 (including 2.1 and 2.2) of this
+[Configure authentication in a sample Python web app by using Azure AD B2C](https://learn.microsoft.com/azure/active-directory-b2c/configure-authentication-sample-python-web-app?tabs=linux)
+
+</td>
+  </tr>
+
   <tr>
     <th rowspan=2>Configuration</th>
     <td><!-- See https://github.com/github/cmark-gfm/issues/12 -->
@@ -58,7 +79,7 @@ as `.env` and then modify `.env` with your app's settings.
 </td>
     <td>
 
-Copy this [CIAM Custom Domain template](.env.sample.ciam-custom-domain)
+Copy this [External ID with Custom Domain template](.env.sample.external-id-custom-domain)
 as `.env` and then modify `.env` with your app's settings.
 
 </td>
@@ -108,21 +129,26 @@ Now restart this sample and try its "Call API" experience.
 
 </td>
   </tr>
-</table>
 
-### Deployment
+  <tr>
+    <th>
 
-Once you finish testing this web app locally, you can deploy it to your production.
-You may choose any web app hosting services you want.
-Here we will describe how to deploy it to
-[Azure App Service](https://azure.microsoft.com/en-us/products/app-service).
+Deploy to
+[Azure App Service](https://azure.microsoft.com/en-us/products/app-service)
+
+</th>
+    <td colspan=4>
 
 * Follow the ["Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service"](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python),
   but replace its sample app (which does not do user sign-in) with this web app.
-
 * [Configure your app's settings](https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs=portal#configure-app-settings)
-  to define
-  [these environment variables](https://github.com/Azure-Samples/ms-identity-python-webapp-django/blob/main/.env.sample).
+  to define environment variables mentioned in the **Configuration** row of this table.
+
+</td>
+  </tr>
+
+</table>
+
 
 ## How to build this sample (or a new web project) from scratch
 
