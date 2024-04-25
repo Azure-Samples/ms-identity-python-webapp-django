@@ -1,4 +1,4 @@
-# Sample: A Python Django web project to sign in users and call APIs with the Microsoft Entra ID
+# Integrating Microsoft Entra ID with a Python web application written in Django
 
 This is a multi-purpose [Django](https://www.djangoproject.com/) web app sample.
 Write your app like this once, and the same implementation will support 4x2=8 scenarios.
