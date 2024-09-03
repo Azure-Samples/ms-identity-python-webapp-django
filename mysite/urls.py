@@ -18,12 +18,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 
+from django.urls import include
+from decorator_include import decorator_include
+
 from . import views
 
 
 urlpatterns = [
     settings.AUTH.urlpattern,
     path('', views.index),
+    path('ms/', decorator_include(settings.AUTH.login_required, include('MSapp.urls'))),
     path("call_api", views.call_api),
     path('admin/', admin.site.urls),
 ]
