@@ -1,3 +1,10 @@
-ms_identity_python[django] @ https://github.com/azure-samples/ms-identity-python/archive/refs/heads/0.9.zip
-python-dotenv<0.22
+ms_identity_python[django] @ https://github.com/azure-samples/ms-identity-python/archive/refs/heads/0.10.zip
+
+## This is a drop-in replacement
+# identity[django]>=0.10,<0.11
+
+## This setup is used by identity sdk maintainers during their local testing
+#-e ../identity[django]
+
+python-dotenv<2
 requests>=2,<3

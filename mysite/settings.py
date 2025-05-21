@@ -14,6 +14,7 @@ from pathlib import Path
 import os, random, string
 from dotenv import load_dotenv
 from identity.django import Auth
+from . import public_views
 load_dotenv()
 AUTH = Auth(
     os.getenv('CLIENT_ID'),
@@ -25,6 +26,9 @@ AUTH = Auth(
     b2c_signup_signin_user_flow=os.getenv('SIGNUPSIGNIN_USER_FLOW'),
     b2c_edit_profile_user_flow=os.getenv('EDITPROFILE_USER_FLOW'),
     b2c_reset_password_user_flow=os.getenv('RESETPASSWORD_USER_FLOW'),
+    post_logout_view=public_views.post_logout,  # Optional. Default to use the root
+        # However, this is a best effort and you don't always see this effect.
+        # Sometimes your Identity Provider lands you on their own post-logout page.
     )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

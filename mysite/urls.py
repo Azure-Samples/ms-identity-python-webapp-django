@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 
-from . import views
+from . import views, public_views
 
 
 urlpatterns = [
     settings.AUTH.urlpattern,
     path('', views.index),
     path("call_api", views.call_api),
+    path("post_logout", public_views.post_logout),
     path('admin/', admin.site.urls),
 ]
