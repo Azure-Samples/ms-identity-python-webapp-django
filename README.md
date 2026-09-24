@@ -1,5 +1,8 @@
 # Integrating Microsoft Entra ID with a Python web application written in Django
 
+> [!IMPORTANT]
+> This repository is deprecated and frozen. No new feature work is planned. Use the maintained [Django web app sample in ms-identity-docs-code-python](https://github.com/Azure-Samples/ms-identity-docs-code-python/tree/main/django-web-app) for new development.
+
 This is a multi-purpose [Django](https://www.djangoproject.com/) web app sample.
 Write your app like this once, and the same implementation will support 4x2=8 scenarios.
 
@@ -173,4 +176,3 @@ For more information, see the
 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
 with any additional questions or comments.
-
